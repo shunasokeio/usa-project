@@ -7,11 +7,11 @@ def main():
     return render_template("index.html")
 
 @app.route('/login', methods=["POST", "GET"])
-def main():
+def login():
     return render_template("login.html")
 
 @app.route('/signup', methods=["POST", "GET"])
-def main():
+def signup():
     return render_template("signup.html")
 
 # git add . && git commit -m "message"
