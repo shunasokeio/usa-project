@@ -1,10 +1,18 @@
-from flask import Flask
+from flask import Flask, render_template, session, redirect, url_for, request
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p>ghello again world, World!</p>"
+@app.route('/', methods=["POST", "GET"])
+def main():
+    return render_template("index.html")
+
+@app.route('/login', methods=["POST", "GET"])
+def main():
+    return render_template("login.html")
+
+@app.route('/signup', methods=["POST", "GET"])
+def main():
+    return render_template("signup.html")
 
 # git add . && git commit -m "message"
 # git push -u usa master
