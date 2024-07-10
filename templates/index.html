@@ -7,7 +7,7 @@
           initial-scale=1.0">
     <title>RuFREErn</title>
 
-          <link href="output.css" rel="stylesheet">
+          <link href="../styles/output.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,31 +15,25 @@
 <div class="flex flex-col justify-center mt-32">
 <h1 class="text-6xl font-bold text-amber-500 text-center">RuFREErn</h1>
 
+<div class="mt-24"></div>
 
-<div class="my-4"></div>
+<button id="addFriend" class="bg-amber-500 text-lg py-4 px-8 rounded-full text-center items-center text-white w-48 mx-auto hover:opacity-90 active:opacity-70 ">Add Friend</button>
 
-<h2 class="text-black text-center text-3xl font-bold">Login</h2>
-
-<div class="justify-center flex flex-col w-1/2 mx-auto" >
 <div class="my-8"></div>
 
-<input type="text" class="w-full justify-center p-2 border-2 border-gray-300 rounded-lg" placeholder="Email" id="email">
+<button id="viewFriend" class="bg-amber-500 text-lg py-4 px-8 rounded-full text-center items-center text-white w-48 mx-auto hover:opacity-90 active:opacity-70 ">View Friend</button>
 
-<div class="my-4"></div>
-
-<input type="password" class="w-full justify-center p-2 border-2 border-gray-300 rounded-lg" placeholder="Password" id="password">
-<div class="my-6"></div>
-<button class="bg-amber-500 text-white text-2xl rounded-full py-2 w-fit px-8 mx-auto hover:opacity-90 active:opacity-80">Login</button>
-</div>
-
-<div class="absolute bottom-24 flex flex-col justify-center text-lg right-0 left-0 m-auto  text-black text-center">
-<p>Don't have an accout?</p>
-
-<a class="hover:underline active:opacity-80" href="signup.html">Sign Up</a>
+<div class="absolute bottom-24 flex flex-row justify-center font-bold text-lg right-0 left-0 m-auto  text-black text-center">
+<p>ID:&nbsp;</p>
+<p id="userid">123123123</p>
 
 </div>
 
+<a href="#logout" class="absolute bottom-12 flex flex-row justify-center text-md right-0 left-0 m-auto w-fit text-black text-center hover:cursor-pointer hover:underline active:opacity-80">
 
+LOGOUT
+
+</a>
 
 </body>
 
@@ -73,7 +67,7 @@
 
 <div id="viewpopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
 
-    <div class="relative bg-orange-300 px-6 py-16  shadow-lg w-8/12 text-center">
+    <div class="relative bg-orange-300 px-3 py-16  shadow-lg w-8/12 text-center">
         <button id="viewclosePopup" class="absolute top-4 right-4 bg-white text-lg w-8 h-8 rounded-full text-gray-600 hover:opacity-90 active:opacity-70">&#10006;</button>
 
     <div class=" p-4  w-full text-center">
@@ -83,7 +77,38 @@
         <div class="my-16"></div>
 
 
-        <input type="text" class="w-1/2 p-2 border-2 border-gray-300 rounded-lg" placeholder="enter id..." id="friendID">
+
+<div class="flex flex-row justify-between md:justify-center md:gap-x-8 items-center text-white border-b-2 border-white py-4  ">
+    <img src="images/person.svg" alt="person">
+
+    <div class="flex flex-col text-left mr-8 whitespace-nowrap">
+        <h3 id="name">Name</h3>
+        <div class="flex flex-row">
+            <h4>id:&nbsp;</h4>
+            <p id="userid">123123</p>
+        </div>
+    </div>
+    <div>
+        <p class="rounded-full bg-white px-4 py-2 text-green-400">Cafeteria</p>
+    </div>
+</div>
+
+
+<div class="flex flex-row justify-between md:justify-center md:gap-x-8 items-center text-white border-b-2 border-white py-4  ">
+    <img src="images/person.svg" alt="person">
+
+    <div class="flex flex-col text-left mr-8 whitespace-nowrap">
+        <h3 id="name">Name</h3>
+        <div class="flex flex-row">
+            <h4>id:&nbsp;</h4>
+            <p id="userid">456456</p>
+        </div>
+    </div>
+    <div>
+        <p class="rounded-full bg-white px-4 py-2 text-red-400">Inactive</p>
+    </div>
+</div>
+
 
         <div class="my-16"></div>
 
