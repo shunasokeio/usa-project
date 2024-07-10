@@ -16,3 +16,6 @@ def main():
 
 # git add . && git commit -m "message"
 # git push -u usa master
+
+if __name__ == "__main__":
+    app.run()
