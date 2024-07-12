@@ -101,3 +101,4 @@ def signup():
 
 if __name__ == "__main__":
     app.run()
+    Base.metadata.create_all(engine)
