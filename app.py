@@ -52,7 +52,7 @@ def main():
                 Session.close()
                 return render_template("login.html", message=error)    
     else:
-        return render_template("login.html" message="plslogin")
+        return render_template("login.html", message="plslogin")
 
 @app.route('/home', methods=["POST", "GET"])
 def home():
