@@ -24,8 +24,8 @@ class users(Base):
 class locations(Base):
    __tablename__ = "locations" 
    user_id = Column(Integer, primary_key = True)
-   latitude = Column(Float)
-   longitude = Column(Float) 
+   latitude = Column(float)
+   longitude = Column(float) 
 
 
 class friends(Base): 
