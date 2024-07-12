@@ -25,6 +25,9 @@
 <div class="my-8"></div>
 
 <input type="text" class="w-full justify-center p-2 border-2 border-gray-300 rounded-lg" placeholder="Email" id="email" name="email">
+
+<div class="my-4"></div>
+
 <input type="text" class="w-full justify-center p-2 border-2 border-gray-300 rounded-lg" placeholder="UserName" id="email" name="UserName">
 
 <div class="my-4"></div>
@@ -39,7 +42,7 @@
 <div class="absolute bottom-24 flex flex-col justify-center text-lg right-0 left-0 m-auto  text-black text-center">
 <p>Don't have an account?</p>
 
-<a class="hover:underline active:opacity-80" href="signup.html">Sign Up</a>
+<a class="hover:underline active:opacity-80" href="{{ url_for('signup') }}">Sign Up</a>
 
 </div>
 

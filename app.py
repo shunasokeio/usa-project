@@ -43,16 +43,16 @@ def main():
         try: 
             found_user = Session.query(users).filter_by(email=email).all()
             if len(found_user) == 0: 
-                return redirect(url_for("signup", no_user="true"))
+                return redirect(url_for("signup", message="plssignup"))
             else: 
                 session["email"] = email
-                return redirect(url_for("home"))
+                return redirect(url_for("home", message="login succesful"))
         except (Exception, Error) as error:
                 print("Error while trying to log a user in", error)
                 Session.close()
-                return render_template("login.html", error=error)    
+                return render_template("login.html", message=error)    
     else:
-        return render_template("login.html")
+        return render_template("login.html" message="plslogin")
 
 @app.route('/home', methods=["POST", "GET"])
 def home():
@@ -63,13 +63,13 @@ def home():
             array = []
             records = Session.query(friends).filter_by(email=email).all()
             Session.close()
-            return render_template("index.html", array=array)
+            return render_template("index.html", message="loggedin")
         except (Exception, Error) as error:
                 print("Error while trying to load the home page", error)
                 Session.close()
-                return render_template("index.html", array=["ERROR HAS OCCURED"])
+                return render_template("index.html", message=error)
     else: 
-        return redirect(url_for("main", loginrequired="true"))
+        return redirect(url_for("main", message="loginrequired"))
 
 
 @app.route('/signup', methods=["POST", "GET"])
@@ -85,16 +85,16 @@ def signup():
                 session.add(task)
                 session.commit()
                 session.close()
-                return redirect(url_for("main"))
+                return redirect(url_for("main", message="accountcreated"))
             else: 
                 session["email"] = email
-                return redirect(url_for("main"), userexists="true")
+                return redirect(url_for("main"), message="userexists")
         except (Exception, Error) as error:
                 print("Error while trying to log a user in", error)
                 Session.close()
-                return render_template("signup.html", error=error)    
+                return render_template("signup.html", message=error)    
     else:
-        return render_template("signup.html")
+        return render_template("signup.html", message="welcometosignup")
 
 # git add . && git commit -m "message"
 # git push -u usa master
