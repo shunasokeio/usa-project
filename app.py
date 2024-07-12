@@ -1,6 +1,6 @@
 from flask import Flask, render_template, session, redirect, url_for, request
 from psycopg2 import Error
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date, Boolean, Double
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date, Boolean, Float
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
  
@@ -24,8 +24,8 @@ class users(Base):
 class locations(Base):
    __tablename__ = "locations" 
    user_id = Column(Integer, primary_key = True)
-   latitude = Column(Double)
-   longitude = Column(Double) 
+   latitude = Column(Float)
+   longitude = Column(Float) 
 
 
 class friends(Base): 
