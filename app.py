@@ -5,8 +5,9 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
  
 app = Flask(__name__)
+app.secret_key = "CSIA"
 
-engine = create_engine('postgres://u7feclortrbds4:pc99371329189ecc6173f01b8ccd6bfe4e2fcd50723ccfa773a5b7396af0d20e1@c1i13pt05ja4ag.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d97m4fsiubgdkl', echo = True)
+engine = create_engine('postgresql://u7feclortrbds4:pc99371329189ecc6173f01b8ccd6bfe4e2fcd50723ccfa773a5b7396af0d20e1@c1i13pt05ja4ag.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d97m4fsiubgdkl', echo = True)
 
 #engine = create_engine("sqlite:///db.sqlite3") this is for testing databse
 Base = declarative_base()
