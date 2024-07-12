@@ -99,5 +99,5 @@ def signup():
 # git push -u usa master
 
 if __name__ == "__main__":
-    app.run()
     Base.metadata.create_all(engine)
+    app.run()
