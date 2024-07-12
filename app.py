@@ -1,6 +1,7 @@
 from flask import Flask, render_template, session, redirect, url_for, request
 from psycopg2 import Error
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date, Boolean, Float
+from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
  
@@ -31,7 +32,7 @@ class locations(Base):
 class friends(Base): 
     __tablename__ = "friends"
     user_id = Column(Integer, primary_key = True)
-    friends = Column(Array)
+    friends = Column(ARRAY(Integer))
 
 
 @app.route('/', methods=["POST", "GET"])
