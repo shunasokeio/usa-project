@@ -6,11 +6,11 @@ from sqlalchemy import create_engine, Column, Integer, String, Float
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-
+import os
 app = Flask(__name__)
 app.secret_key = 'usa-project'  # Add a secret key for session management
-
-engine = create_engine('postgresql+psycopg2://u7feclortrbds4:pc99371329189ecc6173f01b8ccd6bfe4e2fcd50723ccfa773a5b7396af0d20e1@c1i13pt05ja4ag.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d97m4fsiubgdkl', echo=True)
+DATABASE_URL = os.environ['DATABASE_URL']
+engine = create_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 Session_maker = sessionmaker(bind=engine)
 
