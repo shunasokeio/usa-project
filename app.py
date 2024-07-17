@@ -10,6 +10,7 @@ import os
 app = Flask(__name__)
 app.secret_key = 'usa-project'  # Add a secret key for session management
 DATABASE_URL = os.environ['DATABASE_URL']
+print(DATABASE_URL)
 engine = create_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 Session_maker = sessionmaker(bind=engine)
