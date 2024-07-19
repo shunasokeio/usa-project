@@ -1,5 +1,4 @@
 ## getting an error when trynna log in, it says the table is not created. might be something wrong with the link, the original link directly from heroku does not work. 
-print("started running")
 from flask import Flask, render_template, session, redirect, url_for, request
 from psycopg2 import Error
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date, Boolean
