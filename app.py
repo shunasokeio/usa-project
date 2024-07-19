@@ -17,19 +17,19 @@ Base = declarative_base()
 Session_maker = sessionmaker(bind=engine)
 #engine = create_engine('postgresql+psycopg2://user:password@localhost/dbname')
 # Creating tables
-class Users(Base):
+class users(Base):
     __tablename__ = "users"
     user_id = Column(Integer, primary_key=True, autoincrement="auto")
     name = Column(String)
     email = Column(String)
 
-class Locations(Base):
+class locations(Base):
     __tablename__ = "locations"
     user_id = Column(Integer, primary_key=True)
     latitude = Column(Float)
     longitude = Column(Float)
 
-class Friends(Base):
+class friends(Base):
     __tablename__ = "friends"
     user_id = Column(Integer, primary_key=True)
     friends = Column(ARRAY(Integer))
@@ -40,7 +40,7 @@ def main():
         session_instance = Session_maker()
         email = str(request.form["email"])
         try:
-            found_user = session_instance.query(Users).filter_by(email=email).all()
+            found_user = session_instance.query(users).filter_by(email=email).all()
             session_instance.close()
             if len(found_user) == 0:
                 return redirect(url_for("signup", message="plssignup"))
@@ -60,7 +60,7 @@ def home():
         email = session["email"]
         session_instance = Session_maker()
         try:
-            records = session_instance.query(Friends).filter_by(email=email).all()
+            records = session_instance.query(friends).filter_by(email=email).all()
             session_instance.close()
             return render_template("index.html", message="loggedin")
         except (Exception, Error) as error:
@@ -77,9 +77,9 @@ def signup():
         email = str(request.form["email"])
         name = str(request.form["name"])
         try:
-            found_user = session_instance.query(Users).filter_by(email=email).all()
+            found_user = session_instance.query(users).filter_by(email=email).all()
             if len(found_user) == 0:
-                user = Users(name=name, email=email)
+                user = users(name=name, email=email)
                 session_instance.add(user)
                 session_instance.commit()
                 session_instance.close()
