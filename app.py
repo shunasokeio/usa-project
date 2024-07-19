@@ -3,7 +3,11 @@
 from flask import Flask, render_template, session, redirect, url_for, request
 from psycopg2 import Error
 from sqlalchemy import create_engine, Column, Integer, String, Float
-from sqlalchemy.dialects.postgresql import ARRAY
+try:
+    from sqlalchemy.dialects.postgresql import ARRAY
+    print("Import successful!")
+except ImportError as e:
+    print(f"Import failed: {e}")
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 app = Flask(__name__)
